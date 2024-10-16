@@ -1,6 +1,6 @@
-**Date**<br>
-**Course Code & Course Name**<br>
-**Student's First Name & Last Name**<br>
+**October 16th 2024**<br>
+**MPAD2003: Introductory Data Storytelling**<br>
+**Ju-Yu Goodwin**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Midterm Project: Exploratory Data Analysis (EDA)
