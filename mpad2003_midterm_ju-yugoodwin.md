@@ -16,17 +16,17 @@ The service requests were taken and counted by four different places either resi
 First, I had to get the data. So I downloaded the CSV file and created a [new Google Sheets document](https://docs.google.com/spreadsheets/d/16TlAe4n38UvMbDcZgShybguWw8TvqVGhljz7YhPRdwQ/edit?usp=sharingto) put it in. Then in the new document, I imported the dataset by clicking on "File", found in the top right corner. Then I hit import. After clicking on import, the following page will pop up. Then you hit on upload.
 
 ![alt text](<Screenshot 2024-11-04 194910.png>)<br>
-*Figure 1: The "Import file" prompt on Google Sheets.*
+*Figure 1: The "Upload" button on Google Sheets to import a file.*
 
 Once you hit upload, all your files will pop up. That's when you click on the CSV file. It should then automatically import it.
 
 ![alt text](<Screenshot 2024-11-04 194942.png>)<br>
-*Figure 2: The "Import file" prompt on Google Sheets.*
+*Figure 2: The downloads in your file explorer.*
 
 After uploading it, the document should look like this:
 
 ![alt text](<Screenshot 2024-11-04 191726.png>)<br>
-*Figure 3: The "Import file" prompt on Google Sheets.*
+*Figure 3: The 2024 Service Requests dataset after you import it*
 
 In this dataset, there are 274310 rows and 11 columns. At first glance, the data looks clean. The elements in each section seem to keep the same template and form of organization.
 
@@ -65,27 +65,27 @@ The last letter, O, stands for outlier values, which are extremely small or extr
 1. The first tool I used to clean the data is the data cleaning suggestion tool in Google Sheets. This is found under Data, then by clicking data clean-up which leads to the clean-up suggestions. The only suggestion that popped up was to trim all the whitespaces. So by clicking the green checkmark, the system automatically implemented the changes.
 
 ![alt text](<Screenshot 2024-11-05 113708.png>)<br>
-*Figure 4: The "Import file" prompt on Google Sheets.*
+*Figure 4: The "Clean-up Suggestions" prompt on Google Sheets.*
 
 2. I found that all the \N were distracting. So I decided to remove them by selecting all the columns and rows and then hitting "Edit". Then I hit on the find and replace function to replace \N with nothing.
 
 ![alt text](<Screenshot 2024-11-05 115727.png>)<br>
-*Figure 5: The "Import file" prompt on Google Sheets.*
+*Figure 5: The "Find and replace" function on Google Sheets for "\N".*
 
 To be double safe, I replaced variant possibilities of the \N like /N. Which you can see here:
 
 ![alt text](<Screenshot 2024-11-05 115532.png>)<br>
-*Figure 6: The "Import file" prompt on Google Sheets.*
+*Figure 6: The "Find and replace" function on Google Sheets to replace "/N".*
 
 3. Then, I wanted to ensure that everything was capitalized. So with every word in the dataset, I made sure to replace the uncapitalized version with the capitalzed version. As shown in this example:
 
 ![alt text](<Screenshot 2024-11-05 120314.png>)<br>
-*Figure 7: The "Import file" prompt on Google Sheets.*
+*Figure 7: The "Find and replace" function on Google Sheets for the word "Resolved".*
 
 4. Then I also wanted to make sure there were no typos in the dataset. So if I noticed anything misspelled like "Cacelled" in Column B, I would change it to the proper form, in this case it would be "Cancelled". To do this, I used the find and replace tool to ensure that all the variants were changed. Like "ad" to "and" in column C, as seen here:
 
 ![alt text](<Screenshot 2024-11-05 120457.png>)<br>
-*Figure 8: The "Import file" prompt on Google Sheets.*
+*Figure 8: The "Find and replace" function on Google Sheets for "and".*
 
 Then I manually fixed small typos in the titles like "Opeed" to "Opened" and "Descriptio" to "Description".
 
@@ -96,7 +96,7 @@ First, I had to add an extra column to the right. Then hit on split text to colu
 I wanted to use the `SPLIT` function to complete this task but it was too inefficient to drag the function down to the bottom of the dataset. So this way was a lot more time efficient.
 
 ![alt text](<Screenshot 2024-11-05 124454.png>)<br>
-*Figure 9: The "Import file" prompt on Google Sheets.*
+*Figure 9: The "Split text to colums" function on Google Sheets.*
 
 6. To finish up, I deleted all information I deemed unnecessary like the address, latitude, longitude and description columns. 
 
@@ -105,7 +105,7 @@ I wanted to use the `SPLIT` function to complete this task but it was too ineffi
 After following these steps, this is what my cleaned dataset looks like:
 
 ![alt text](<Screenshot 2024-11-05 172601.png>)<br>
-*Figure 10: The "Import file" prompt on Google Sheets.*
+*Figure 10: The cleaned version of the 2024 Service Requests dataset.*
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
@@ -114,12 +114,12 @@ To further explore this dataset and find a potential story. I chose to create a 
 Here's my first pivot table:
 
 ![alt text](<Screenshot 2024-11-05 143041.png>)<br>
-*Figure 11: The "Import file" prompt on Google Sheets.*
+*Figure 11: Pivot table for the frequency of each Chanel counted by the Service Request ID.*
 
 And the accompanying exploratory chart:
 
 ![alt text](<COUNTA of Service Request ID (1).png>)<br>
-*Figure 12: The "Import file" prompt on Google Sheets.*
+*Figure 12: Exploratory chart for the frequency of each Chanel counted by the Service Request ID .*
 
 After creating the pivot table and exploratory chart, it is clear that I was right and the number of online web call-ins do stand out alongside dispatch. An interesting note is that the next biggest mode of communication is through the phone. And the smallest is Face2Face, meaning in person.
 
@@ -130,12 +130,12 @@ For my second pivot table, I wanted to figure out if the wards had something to 
 This is my second table:
 
 ![alt text](<Screenshot 2024-11-05 141012-1.png>)<br>
-*Figure 13: The "Import file" prompt on Google Sheets.*
+*Figure 13: Pivot table for the frequency of the ward counted by the Service Request ID.*
 
 And the accompanying exploratory chart:
 
 ![alt text](<COUNTA of Service Request ID.png>)<br>
-*Figure 14: The "Import file" prompt on Google Sheets.*
+*Figure 14: Exploratory chart for the frequency of the ward counted by the Service Request ID.*
 
 ## 4. Potential Story
 
